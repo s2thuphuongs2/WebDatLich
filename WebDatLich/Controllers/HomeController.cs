@@ -17,8 +17,13 @@ namespace WebDatLich.Controllers
         {
             return View();
         }
-        
+
         public IActionResult Calendar()
+        {
+            return View();
+        }
+
+        public IActionResult MyAccount()
         {
             return View();
         }
