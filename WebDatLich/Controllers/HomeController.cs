@@ -28,6 +28,11 @@ namespace WebDatLich.Controllers
             return View();
         }
 
+        public IActionResult Appointments()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

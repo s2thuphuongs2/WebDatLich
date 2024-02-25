@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="~/assets/socicon/css/styles.css">
     <link rel="stylesheet" href="~/assets/theme/css/style.css">
     <link rel="stylesheet" href="~/assets/mobirise/css/mbr-additional.css" type="text/css">
+    <!--Data Tables-->
+    <!-- page css -->
+    <link href="~/adminassets/vendors/datatables/datatables.bootstrap.min.css" rel="stylesheet" />
+
 
     <style>
         .banner {
@@ -57,11 +61,6 @@
 
     <!--Footer start here-->
     <section once="" class="cid-qxz2d2nfR8" id="footer6-a" data-rv-view="117">
-
-
-
-
-
         <div class="container">
             <div class="media-container-row align-center mbr-white">
                 <div class="col-12">
@@ -74,22 +73,29 @@
     </section>
 
 
-    <script src="assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="assets/popper/popper.min.js"></script>
-    <script src="assets/tether/tether.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/smooth-scroll/smooth-scroll.js"></script>
-    <script src="assets/dropdown/js/script.min.js"></script>
-    <script src="assets/jarallax/jarallax.min.js"></script>
-    <script src="assets/social-likes/social-likes.js"></script>
-    <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
-    <script src="assets/theme/js/script.js"></script>
-    <script src="assets/formoid/formoid.min.js"></script>
+    <script src="~/assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="~/assets/popper/popper.min.js"></script>
+    <script src="~/assets/tether/tether.min.js"></script>
+    <script src="~/assets/smooth-scroll/smooth-scroll.js"></script>
+    <script src="~/assets/jarallax/jarallax.min.js"></script>
+    <script src="~/assets/social-likes/social-likes.js"></script>
+    <script src="~/assets/touch-swipe/jquery.touch-swipe.min.js"></script>
+    <script src="~/assets/theme/js/script.js"></script>
+    <script src="~/assets/formoid/formoid.min.js"></script>
     <!--Footer end here-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
- 
+    <!--Dropdown-->
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/dropdown/js/script.min.js"></script>
+    <script src="~/adminassets/js/app.min.js"></script>
+    <script src="~/adminassets/js/vendors.min.js"></script>
+    <!--Dropdown end-->
+     <!--Data Tables-->
+    <script src="~/adminassets/vendors/datatables/jquery.datatables.min.js"></script>
+    <script src="~/adminassets/vendors/datatables/datatables.bootstrap.min.js"></script>
+    <!--Data Tables End-->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
