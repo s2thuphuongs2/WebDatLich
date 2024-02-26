@@ -23,15 +23,15 @@ namespace WebDatLich.Controllers
             return View();
         }
 
-        public IActionResult MyAccount()
+        public IActionResult CorporateCustomer()
+        {
+            return View();
+        }   
+        public IActionResult WorkingPlan()
         {
             return View();
         }
 
-        public IActionResult Appointments()
-        {
-            return View();
-        }
 
         public IActionResult Privacy()
         {

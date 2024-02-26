@@ -10,5 +10,6 @@ namespace WebDatLich.Areas.Admin.Controllers
         {
             return View();
         }
+        
     }
 }

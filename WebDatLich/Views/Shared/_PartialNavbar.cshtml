@@ -41,28 +41,37 @@
                         </button>
                         <div class="dropdown-menu ">
                             
-                                <a class="nav-link link" asp-area="" asp-controller="Home" asp-action="Calendar">
+                             <a asp-area="" asp-controller="Home" asp-action="Calendar">
                                 <button class="dropdown-item text-white" type="button">Lịch</button>
                             </a>
                             
                             
-                                <a asp-area="" asp-controller="Home" asp-action="Appointments">
+                            <a asp-area="" asp-controller="Appointments" asp-action="Index">
                                 <button class="dropdown-item text-white" type="button">
                                     Danh sách lịch hẹn
+                                </button>
+                            </a>
+                            <a asp-area="" asp-controller="Home" asp-action="WorkingPlan">
+                                <button class="dropdown-item text-white" type="button">
+                                    Kế hoạch làm việc
                                 </button>
                             </a>
                             
                         </div>
                     </div>
+
              
                     <li class="nav-item">
                         <a class="nav-link link text-white " asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white " asp-area="" asp-controller="Appointments" asp-action="Create">Thêm lịch hẹn</a>
                     </li>
                 </ul>
             </div>
             <ul class="nav-right" data-app-modern-menu="true">
                 <li class="dropdown dropdown-animated scale-left">
-                    <a class="nav-link link text-white " asp-area="" asp-controller="Home" asp-action="MyAccount">Tài khoản của tôi</a>
+                    <a class="nav-link link text-white " asp-area="" asp-controller="Customers" asp-action="Index">Tài khoản của tôi</a>
                 </li>
                 <li class="dropdown dropdown-animated scale-left">
                     <a class="nav-link link text-white " href="https://mobirise.com">

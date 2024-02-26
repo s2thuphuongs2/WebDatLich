@@ -94,7 +94,7 @@ public partial class AppointmentschedulerContext : DbContext
 
         modelBuilder.Entity<CorporateCustomer>(entity =>
         {
-            entity.HasKey(e => e.IdCustomer).HasName("PK__corporat__8CC9BA46842BE846");
+            entity.HasKey(e => e.IdCustomer).HasName("PK__corporat__8CC9BA46A7D947D9");
 
             entity.ToTable("corporate_customers");
 
@@ -103,7 +103,6 @@ public partial class AppointmentschedulerContext : DbContext
                 .HasColumnName("id_customer");
             entity.Property(e => e.CompanyName)
                 .HasMaxLength(256)
-                .IsUnicode(false)
                 .HasColumnName("company_name");
             entity.Property(e => e.VatNumber)
                 .HasMaxLength(256)
@@ -274,7 +273,6 @@ public partial class AppointmentschedulerContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.City)
                 .HasMaxLength(50)
-                .IsUnicode(false)
                 .HasColumnName("city");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
@@ -282,11 +280,9 @@ public partial class AppointmentschedulerContext : DbContext
                 .HasColumnName("email");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(50)
-                .IsUnicode(false)
                 .HasColumnName("first_name");
             entity.Property(e => e.LastName)
                 .HasMaxLength(50)
-                .IsUnicode(false)
                 .HasColumnName("last_name");
             entity.Property(e => e.Mobile)
                 .HasMaxLength(50)
@@ -297,13 +293,8 @@ public partial class AppointmentschedulerContext : DbContext
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasColumnName("password");
-            entity.Property(e => e.Postcode)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("postcode");
             entity.Property(e => e.Street)
                 .HasMaxLength(50)
-                .IsUnicode(false)
                 .HasColumnName("street");
             entity.Property(e => e.Username)
                 .HasMaxLength(50)
@@ -353,13 +344,12 @@ public partial class AppointmentschedulerContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Description)
-                .HasColumnType("text")
+                .HasMaxLength(256)
                 .HasColumnName("description");
             entity.Property(e => e.Duration).HasColumnName("duration");
             entity.Property(e => e.Editable).HasColumnName("editable");
             entity.Property(e => e.Name)
                 .HasMaxLength(256)
-                .IsUnicode(false)
                 .HasColumnName("name");
             entity.Property(e => e.Price)
                 .HasColumnType("decimal(10, 2)")

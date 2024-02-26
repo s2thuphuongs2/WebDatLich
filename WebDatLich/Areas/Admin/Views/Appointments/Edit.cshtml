@@ -1,0 +1,72 @@
+﻿@model WebDatLich.Models.Appointment
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Start" class="control-label"></label>
+                <input asp-for="Start" class="form-control" />
+                <span asp-validation-for="Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="End" class="control-label"></label>
+                <input asp-for="End" class="form-control" />
+                <span asp-validation-for="End" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CanceledAt" class="control-label"></label>
+                <input asp-for="CanceledAt" class="form-control" />
+                <span asp-validation-for="CanceledAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCanceler" class="control-label"></label>
+                <select asp-for="IdCanceler" class="form-control" asp-items="ViewBag.IdCanceler"></select>
+                <span asp-validation-for="IdCanceler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProvider" class="control-label"></label>
+                <select asp-for="IdProvider" class="form-control" asp-items="ViewBag.IdProvider"></select>
+                <span asp-validation-for="IdProvider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCustomer" class="control-label"></label>
+                <select asp-for="IdCustomer" class="form-control" asp-items="ViewBag.IdCustomer"></select>
+                <span asp-validation-for="IdCustomer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdWork" class="control-label"></label>
+                <select asp-for="IdWork" class="form-control" asp-items="ViewBag.IdWork"></select>
+                <span asp-validation-for="IdWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdInvoice" class="control-label"></label>
+                <select asp-for="IdInvoice" class="form-control" asp-items="ViewBag.IdInvoice"></select>
+                <span asp-validation-for="IdInvoice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

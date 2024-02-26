@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<WebDatLich.Models.Appointment>
 
+
 @{
-    ViewData["Title"] = "Appointments";
+    ViewData["Title"] = "Danh sách lịch hẹn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,7 +17,7 @@
             <div class="col-md-8 align-center">
                 <h2 class="pb-3 mbr-section-title mbr-fonts-style">
                     <strong>
-                        Danh sách lịch hẹn
+                        @ViewData["Title"]
                     </strong>
                 </h2>
 
@@ -25,7 +26,6 @@
     </div>
 </section>
 <!--Banner end-->
-
 
 <div class="card">
     <div class="card-body">
@@ -52,7 +52,7 @@
                         <td>50 phút</td>
                         <td><button>Details</button></td>
                     </tr>
-     
+
                     <tr>
                         <td>Lớp học Tiếng Anh</td>
                         <td>ĐÃ LÊN LỊCH</td>
@@ -210,7 +210,7 @@
                         <td>3 giờ</td>
                         <td><button>Chi tiết</button></td>
                     </tr>
-           
+
                     <tr>
                         <td>Lớp học Tiếng Anh</td>
                         <td>ĐÃ LÊN LỊCH</td>
@@ -374,7 +374,7 @@
                         <td>3 giờ</td>
                         <td><button>Chi tiết</button></td>
                     </tr>
-     
+
                 </tbody>
                 <tfoot>
                     <tr>
@@ -388,11 +388,11 @@
                 </tfoot>
             </table>
         </div>
-        
+
     </div>
 </div>
 
-@section Scripts{
+@section Scripts {
     <script>
         $('#data-table').DataTable();
     </script>
@@ -400,4 +400,39 @@
 }
 
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 
+
+
+@* <tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWorkNavigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProviderNavigation.Id)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWork);
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</tbody> *@

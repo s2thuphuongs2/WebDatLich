@@ -23,8 +23,6 @@ public partial class User
 
     public string? City { get; set; }
 
-    public string? Postcode { get; set; }
-
     public virtual ICollection<Appointment> AppointmentIdCancelerNavigations { get; set; } = new List<Appointment>();
 
     public virtual ICollection<Appointment> AppointmentIdCustomerNavigations { get; set; } = new List<Appointment>();
