@@ -58,6 +58,9 @@ namespace WebDatLich.Controllers
             ViewData["IdWork"] = new SelectList(_context.Works, "Id", "Id");*/
             return View();
         }
+        public IActionResult selectProvider()
+        { return View(); }
+
 
         // POST: Appointments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -80,8 +83,9 @@ namespace WebDatLich.Controllers
             return View(appointment);
         }
 
-        // GET: Appointments/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+
+            // GET: Appointments/Edit/5
+            public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {

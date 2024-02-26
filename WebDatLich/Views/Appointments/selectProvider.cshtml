@@ -1,9 +1,9 @@
-﻿@model WebDatLich.Models.Appointment
-
+﻿
 @{
-    ViewData["Title"] = "Tạo lịch hẹn mới";
+    ViewData["Title"] = "Chọn người đặt lịch";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <!--Banner-->
 <section class="cid-qxz61ptK8m" id="social-buttons3-c" data-rv-view="111">
 
@@ -24,39 +24,37 @@
     </div>
 </section>
 <!--Banner end-->
-
-    
-    <!-- Content Wrapper START -->
-    <div class="main-content">
-        <div class="card">
-            <div class="page-header no-gutters">
-                <div class="row align-items-md-center">
-                    <div class="col-md-6">
-                        <div class="media m-v-10">
-                            <div class="avatar avatar-cyan avatar-icon avatar-square">
-                                <i class="anticon anticon-star"></i>
-                            </div>
-                            <div class="media-body m-l-15">
-                                <h6 class="mb-0">Danh sách người tạo lịch hẹn (9)</h6>
-                                <span class="text-gray font-size-13">Chọn người bạn muốn đặt lịch hẹn</span>
-                            </div>
+<!-- Content Wrapper START -->
+<div class="main-content">
+    <div class="card">
+        <div class="page-header no-gutters">
+            <div class="row align-items-md-center">
+                <div class="col-md-6">
+                    <div class="media m-v-10">
+                        <div class="avatar avatar-cyan avatar-icon avatar-square">
+                            <i class="anticon anticon-star"></i>
+                        </div>
+                        <div class="media-body m-l-15">
+                            <h6 class="mb-0">Danh sách người tạo lịch hẹn (9)</h6>
+                            <span class="text-gray font-size-13">Chọn người bạn muốn đặt lịch hẹn</span>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="text-md-right m-v-10">
-                            <div class="btn-group">
-                                <button id="list-view-btn" type="button" class="btn btn-default btn-icon">
-                                    <i class="anticon anticon-ordered-list"></i>
-                                </button>
-                                <button id="card-view-btn" type="button" class="btn btn-default btn-icon active">
-                                    <i class="anticon anticon-appstore"></i>
-                                </button>
-                            </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-md-right m-v-10">
+                        <div class="btn-group">
+                            <button id="list-view-btn" type="button" class="btn btn-default btn-icon">
+                                <i class="anticon anticon-ordered-list"></i>
+                            </button>
+                            <button id="card-view-btn" type="button" class="btn btn-default btn-icon active">
+                                <i class="anticon anticon-appstore"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-11 mx-auto">
@@ -85,8 +83,8 @@
                                     </button>
                                 </div>
                                 <div class="text-center m-t-30">
-                                    
-                                        <a asp-area="" asp-controller="Appointments" asp-action="Index" class="btn btn-primary btn-tone">
+
+                                    <a asp-area="" asp-controller="Appointments" asp-action="Index" class="btn btn-primary btn-tone">
                                         <i class="anticon anticon-user-add"></i>
                                         <span class="m-l-5">Chọn</span>
                                     </a>
@@ -510,11 +508,7 @@
             </div>
         </div>
     </div>
-       
-
-    </div>
-    <!-- Content Wrapper END -->
-    
 
 
-
+</div>
+<!-- Content Wrapper END -->
