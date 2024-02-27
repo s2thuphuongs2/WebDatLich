@@ -388,6 +388,13 @@
     <!-- Core JS -->
     <script src="~/adminassets/js/app.min.js"></script>
 
+    <!--Data Tables-->
+    <script src="~/adminassets/vendors/datatables/jquery.datatables.min.js"></script>
+    <script src="~/adminassets/vendors/datatables/datatables.bootstrap.min.js"></script>
+    <!--Data Tables End-->
+   
+    @await RenderSectionAsync("AdminScripts", required: false)
+
 </body>
 
 </html>

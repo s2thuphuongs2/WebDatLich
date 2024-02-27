@@ -1,4 +1,4 @@
-
+﻿
 using Microsoft.EntityFrameworkCore;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
@@ -7,11 +7,10 @@ using WebDatLich.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); //add cùng package hỗ trợ sửa frontend
 var stringConnectdb = builder.Configuration.GetConnectionString("dbWebDatLich");
 builder.Services.AddDbContext<AppointmentschedulerContext>(options => options.UseSqlServer(stringConnectdb));
 builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
