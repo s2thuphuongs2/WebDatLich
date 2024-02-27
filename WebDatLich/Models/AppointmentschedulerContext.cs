@@ -43,7 +43,7 @@ public partial class AppointmentschedulerContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=PT;Database=appointmentscheduler;Integrated Security=true;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-MLQ6D90\\TY;Database=appointmentscheduler;Integrated Security=true;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -94,7 +94,7 @@ public partial class AppointmentschedulerContext : DbContext
 
         modelBuilder.Entity<CorporateCustomer>(entity =>
         {
-            entity.HasKey(e => e.IdCustomer).HasName("PK__corporat__8CC9BA46A7D947D9");
+            entity.HasKey(e => e.IdCustomer).HasName("PK__corporat__8CC9BA46CCA12F0B");
 
             entity.ToTable("corporate_customers");
 
@@ -117,7 +117,7 @@ public partial class AppointmentschedulerContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.IdCustomer).HasName("PK__customer__8CC9BA4606A71C2E");
+            entity.HasKey(e => e.IdCustomer).HasName("PK__customer__8CC9BA467FB3F22E");
 
             entity.ToTable("customers");
 
@@ -207,11 +207,10 @@ public partial class AppointmentschedulerContext : DbContext
             entity.Property(e => e.IdUser).HasColumnName("id_user");
             entity.Property(e => e.IsRead).HasColumnName("is_read");
             entity.Property(e => e.Message)
-                .HasColumnType("text")
+                .HasMaxLength(256)
                 .HasColumnName("message");
             entity.Property(e => e.Title)
                 .HasMaxLength(256)
-                .IsUnicode(false)
                 .HasColumnName("title");
             entity.Property(e => e.Url)
                 .HasMaxLength(256)
@@ -225,7 +224,7 @@ public partial class AppointmentschedulerContext : DbContext
 
         modelBuilder.Entity<Provider>(entity =>
         {
-            entity.HasKey(e => e.IdProvider).HasName("PK__provider__BCFF0234DA2221EC");
+            entity.HasKey(e => e.IdProvider).HasName("PK__provider__BCFF0234F07C59AE");
 
             entity.ToTable("providers");
 
@@ -241,7 +240,7 @@ public partial class AppointmentschedulerContext : DbContext
 
         modelBuilder.Entity<RetailCustomer>(entity =>
         {
-            entity.HasKey(e => e.IdCustomer).HasName("PK__retail_c__8CC9BA46A9FEDEA4");
+            entity.HasKey(e => e.IdCustomer).HasName("PK__retail_c__8CC9BA46628543A9");
 
             entity.ToTable("retail_customers");
 
@@ -362,7 +361,7 @@ public partial class AppointmentschedulerContext : DbContext
 
         modelBuilder.Entity<WorkingPlan>(entity =>
         {
-            entity.HasKey(e => e.IdProvider).HasName("PK__working___BCFF0234B6DDDEE3");
+            entity.HasKey(e => e.IdProvider).HasName("PK__working___BCFF02342D0FE640");
 
             entity.ToTable("working_plans");
 
