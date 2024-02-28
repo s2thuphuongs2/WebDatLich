@@ -80,7 +80,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="avatar.html">Nội dung lịch hẹn</a>
+                        <a asp-area="Admin" asp-controller="AdminWorks" asp-action="Index">Nội dung lịch hẹn</a>
                     </li>
                 </ul>
             </li>
@@ -89,17 +89,17 @@
                     <span class="icon-holder">
                         <i class="anticon anticon-hdd"></i>
                     </span>
-                    <span class="title">Quản lý Khách hàng</span>
+                    <span class="title">Quản lý Người dùng</span>
                     <span class="arrow">
                         <i class="arrow-icon"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="accordion.html">Nhà cung cấp</a>
+                        <a asp-area="Admin" asp-controller="Users" asp-action="Index">Người dùng</a>
                     </li>
                     <li>
-                        <a href="carousel.html">Khách hàng</a>
+                        <a asp-area="Admin" asp-controller="AdminProviders" asp-action="Index">Nhà cung cấp</a>
                     </li>
                     <li>
                         <a href="dropdown.html">Doanh nghiệp</a>
@@ -119,7 +119,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="accordion.html">Đã thanh toán</a>
+                        <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Index">Đã thanh toán</a>
                     </li>
                     <li>
                         <a href="carousel.html">Chưa thanh toán</a>

@@ -390,7 +390,6 @@
                             <th>Người hẹn</th>
                             <th>Khoảng thời gian</th>
                             <th>Hoạt động</th>
-                            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -412,8 +411,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IdWorkNavigation.Duration) @(" phút")
 
-            </td    
-
+            </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
