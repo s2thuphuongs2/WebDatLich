@@ -5,66 +5,102 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Nội dung
-            </th>
-            <th>
-                Khoảng thời gian
-            </th>
-            <th>
-                Chi phí
-            </th>
-            <th>
-                Thay đổi
-            </th>
-            <th>
-                Đối tượng
-            </th>
-            <th>
-                Mô tả
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration) @(" phút")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price) @("đ")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Editable)
-            </td>
-            <td>
-                    @{
-                        string displayValue = item.Target == "retail" ? "Cá nhân" : "Doanh nghiệp";
-                    }
 
-                    @Html.DisplayFor(modelItem => displayValue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="container">
+    <p>
+        <a asp-action="Create">
+            <button class="btn btn-primary btn-tone m-r-5">Create New</button>
+        </a>
+    </p>
+    <div class="card">
+        <div class="card-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Nội dung
+                            </th>
+                            <th>
+                                Khoảng thời gian
+                            </th>
+                            <th>
+                                Chi phí
+                            </th>
+                            <th>
+                                Thay đổi
+                            </th>
+                            <th>
+                                Đối tượng
+                            </th>
+                            <th>
+                                Mô tả
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Duration) @(" phút")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price) @("đ")
+                                </td>
+                                <td>
+                                    @if (item.Editable == true)
+                                    {
+                                        <span class="badge badge-pill badge-cyan font-size-12">Có thể sửa</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-pill badge-red font-size-12">Không thể sửa</span>
+                                    }
+
+                                </td>
+                                <td>
+                                    @{
+                                        string displayValue = item.Target == "retail" 
+                                        ? "Cá nhân" 
+                                        : "Doanh nghiệp";
+                                    }
+
+                                    @Html.DisplayFor(modelItem => displayValue)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td class="row">
+                                    <a asp-action="Edit" asp-route-id="@item.Id">
+                                        <button class="btn btn-primary btn-tone m-r-1">Sửa</button>
+                                    </a>
+                                    
+                                    <a asp-action="Details" asp-route-id="@item.Id">
+                                        <button class="btn btn-info btn-tone m-r-2">Chi tiết</button>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id">
+                                        <button class="btn btn-danger btn-tone m-r-2">Xóa</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

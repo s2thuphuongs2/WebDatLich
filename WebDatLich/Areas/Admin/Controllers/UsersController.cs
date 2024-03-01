@@ -47,7 +47,11 @@ namespace WebDatLich.Areas.Admin.Controllers
         // GET: Admin/Users/Create
         public IActionResult Create()
         {
-            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "RoleId", "Description");
+            // Đặt SelectList vào ViewData
+            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "Id", "Name");
+            List<SelectListItem> lsTrangThai = new List<SelectListItem>();
+            
+
             return View();
         }
 
