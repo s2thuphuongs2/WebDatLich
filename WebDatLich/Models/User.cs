@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace WebDatLich.Models;
 
@@ -7,20 +8,27 @@ public partial class User
 {
     public int Id { get; set; }
 
+    [DisplayName("Tên người dùng")]
     public string Username { get; set; } = null!;
 
+    [DisplayName("Mật khẩu")]
     public string Password { get; set; } = null!;
 
+    [DisplayName("Tên")]
     public string? FirstName { get; set; }
 
+    [DisplayName("Họ và tên lót")]
     public string? LastName { get; set; }
 
     public string? Email { get; set; }
 
+    [DisplayName("Số điện thoại")]
     public string? Mobile { get; set; }
 
+    [DisplayName("Địa chỉ")]
     public string? Street { get; set; }
 
+    [DisplayName("Thành phố")]
     public string? City { get; set; }
 
     public virtual ICollection<Appointment> AppointmentIdCancelerNavigations { get; set; } = new List<Appointment>();

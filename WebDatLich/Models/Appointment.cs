@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace WebDatLich.Models;
 
@@ -7,12 +8,16 @@ public partial class Appointment
 {
     public int Id { get; set; }
 
+    [DisplayName("Bắt đầu")]
     public DateTime? Start { get; set; }
 
+    [DisplayName("Kết thúc")]
     public DateTime? End { get; set; }
 
+    [DisplayName("Hủy vào lúc")]
     public DateTime? CanceledAt { get; set; }
 
+    [DisplayName("Trạng thái")]
     public string? Status { get; set; }
 
     public int? IdCanceler { get; set; }
