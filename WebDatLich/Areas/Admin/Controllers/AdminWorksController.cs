@@ -46,6 +46,7 @@ namespace WebDatLich.Areas.Admin.Controllers
         // GET: Admin/AdminWorks/Create
         public IActionResult Create()
         {
+            /*Work work = new Work();*/
             return View();
         }
 
@@ -56,6 +57,12 @@ namespace WebDatLich.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Duration,Price,Editable,Target,Description")] Work work)
         {
+            // Check if model is null before further processing
+            if (work == null)
+            {
+                // Handle the case where the model is null
+                return View("Error");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(work);

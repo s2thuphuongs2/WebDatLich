@@ -35,49 +35,32 @@
                             <input asp-for="Price" class="form-control" />
                             <span asp-validation-for="Price" class="text-danger"></span>
                         </div>
+             
                         <div class="form-group">
                             <label asp-for="Editable" class="control-label"></label>
-
-                        </div>
-                        <div class="form-group row">
-                          
-                            <div class="radio col-6">
-                                <input asp-for="Editable" type="radio" name="editableRadios" value="True" id="editableYes">
-                                <label for="editableYes">
-                                    Yes
-                                </label>
-                            </div>
-                            <div class="radio col-6">
-                                <input asp-for="Editable" type="radio" name="editableRadios" value="False" id="editableNo">
-                                <label for="editableNo">
-                                    No
-                                </label>
+                            <div class="form-check radio col-12">
+                                <input asp-for="Editable" type="radio" class="form-check-input" value="true" id="editableYes">
+                                <label class="form-check-label" for="editableYes">Yes</label>
+                               
+                                <input asp-for="Editable" type="radio" class="form-check-input" value="false" id="editableNo">
+                                <label class="form-check-label" for="editableNo">No</label>
                             </div>
                             <span asp-validation-for="Editable" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            
                             <label asp-for="Target" class="control-label"></label>
-                     
-                        </div>
-                        <div class="form-group row">
-                     
-                            <div class="radio col-6">
-
-                                <input asp-for="Target" type="radio" name="targetRadios" value="Retail" id="retail">
-                                <label for="retail">
-                                    Retail
-                                </label>
-                            </div>
-                            <div class="radio col-6">
-                                <input asp-for="Target" type="radio" name="targetRadios" value="Corporate"   id="corporate">
-                                <label for="corporate">
-                                    Corporate
-                                </label>
+                            <div class="form-check radio col-12">
+                                <input asp-for="Target" type="radio" class="form-check-input" value="retail" id="retail">
+                                <label class="form-check-label" for="retail">Retail</label>
+                                
+                                <input asp-for="Target" type="radio" class="form-check-input" value="corporate" id="corporate">
+                                <label class="form-check-label" for="corporate">Corporate</label>
                             </div>
                             <span asp-validation-for="Target" class="text-danger"></span>
                         </div>
+
+
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
                             <input asp-for="Description" class="form-control" />
