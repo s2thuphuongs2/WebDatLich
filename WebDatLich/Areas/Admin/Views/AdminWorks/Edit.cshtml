@@ -6,50 +6,71 @@
 }
 
 <h1>Edit</h1>
+<div class="container col-md-8">
+    <div class="card">
+        <div class="container col-md-10">
+            <br />
+            <h4>Work</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Duration" class="control-label"></label>
+                            <input asp-for="Duration" class="form-control" />
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Editable" class="control-label"></label>
+                            <div class="form-check radio col-12">
+                                <input asp-for="Editable" type="radio" class="form-check-input" value="true" id="editableYes">
+                                <label class="form-check-label" for="editableYes">Yes</label>
 
-<h4>Work</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                                <input asp-for="Editable" type="radio" class="form-check-input" value="false" id="editableNo">
+                                <label class="form-check-label" for="editableNo">No</label>
+                            </div>
+                            <span asp-validation-for="Editable" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Target" class="control-label"></label>
+                            <div class="form-check radio col-12">
+                                <input asp-for="Target" type="radio" class="form-check-input" value="retail" id="retail">
+                                <label class="form-check-label" for="retail">Retail</label>
+
+                                <input asp-for="Target" type="radio" class="form-check-input" value="corporate" id="corporate">
+                                <label class="form-check-label" for="corporate">Corporate</label>
+                            </div>
+                            <span asp-validation-for="Target" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Duration" class="control-label"></label>
-                <input asp-for="Duration" class="form-control" />
-                <span asp-validation-for="Duration" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Editable" class="control-label"></label>
-                <input asp-for="Editable" class="form-control" />
-                <span asp-validation-for="Editable" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Target" class="control-label"></label>
-                <input asp-for="Target" class="form-control" />
-                <span asp-validation-for="Target" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+
+
 
 <div>
     <a asp-action="Index">Back to List</a>
