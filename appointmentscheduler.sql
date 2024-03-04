@@ -277,3 +277,42 @@ GO
 -- Tạo bảng và thêm dữ liệu cho 'messages'
 INSERT INTO messages (created_at, [message], id_author, id_appointment)
 VALUES (GETDATE(), N'Chào anh/chị, hẹn gặp lại vào buổi học tiếp theo.', 2, 1);
+
+-- Thêm dữ liệu cho bảng 'users'
+INSERT INTO users (username, password, first_name, last_name, email, mobile, street, city)
+VALUES 
+    ('user1', 'password1', N'Nguyễn', N'Văn A', 'user1@example.com', '123456789', N'Tân Bình', N'TP.Hồ Chí Minh'),
+    ('user2', 'password2', N'Nguyễn', N'Thị B', 'user2@example.com', '987654321', N'Tân Phú', N'TP.Hồ Chí Minh'),
+    ('user3', 'password3', N'Phạm', N'Thị C', 'user3@example.com', '555555555', N'Quận 1', N'TP.Hồ Chí Minh'),
+    ('user4', 'password4', N'Trần', N'Văn D', 'user4@example.com', '111111111', N'Quận 7', N'TP.Hồ Chí Minh'),
+    ('user5', 'password5', N'Lê', N'Thị E', 'user5@example.com', '222222222', N'Bình Thạnh', N'TP.Hồ Chí Minh'),
+    ('user6', 'password6', N'Hồ', N'Trung F', 'user6@example.com', '333333333', N'Gò Vấp', N'TP.Hồ Chí Minh'),
+    ('user7', 'password7', N'Đặng', N'Thị G', 'user7@example.com', '444444444', N'Tân Phú', N'TP.Hồ Chí Minh'),
+    ('user8', 'password8', N'Phan', N'Văn H', 'user8@example.com', '555555555', N'Tân Bình', N'TP.Hồ Chí Minh'),
+    ('user9', 'password9', N'Trịnh', N'Thị I', 'user9@example.com', '666666666', N'Quận 10', N'TP.Hồ Chí Minh'),
+    ('user10', 'password10', N'Vũ', N'Trung K', 'user10@example.com', '777777777', N'Quận 3', N'TP.Hồ Chí Minh');
+GO
+-- Thêm dữ liệu cho bảng 'providers'
+INSERT INTO providers (id_provider)
+VALUES (5),
+	(6),
+	(7),
+	(8);
+GO
+-- Thêm dữ liệu cho bảng 'users_roles'
+INSERT INTO users_roles (user_id, role_id)
+VALUES (5, 3),
+		(6, 3),
+		(7, 3),
+		(8, 3),
+		(9, 3),
+		(10, 3),
+		(11, 3),
+		(5, 4),
+		(6, 4),
+		(7, 4),
+		(8, 4),
+		(9, 5),
+		(10, 5),
+		(11, 5);
+GO

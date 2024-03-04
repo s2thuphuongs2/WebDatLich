@@ -49,6 +49,8 @@ namespace WebDatLich.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewData["IdProvider"] = new SelectList(_context.Users, "Id", "Id");
+            // Thêm SelectList Works
+            /* ViewData["Works"] = new SelectList(_context.Works, "Id", "Name");*/
             return View();
         }
 
@@ -66,6 +68,8 @@ namespace WebDatLich.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdProvider"] = new SelectList(_context.Users, "Id", "Id", provider.IdProvider);
+
+            /*ViewData["Works"] = new SelectList(_context.Works, "Id", "Name", provider.Works);*/
             return View(provider);
         }
 
@@ -83,6 +87,7 @@ namespace WebDatLich.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["IdProvider"] = new SelectList(_context.Users, "Id", "Id", provider.IdProvider);
+            
             return View(provider);
         }
 

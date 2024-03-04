@@ -53,6 +53,18 @@
                 <input asp-for="City" class="form-control" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
+
+            <!--Làm thêm form chọn công việc nữa-START-->
+            @* <div class="form-group">
+                <label asp-for="IdWorks" class="control-label">Chọn công việc</label>
+                <div>
+                    @foreach (var work in ViewBag.IdWorks as SelectList)
+                    {
+                        <input type="radio" asp-for="IdWorks" value="@work.Value" /> @work.Text
+                    }
+                </div>
+            </div> *@
+            <!--Làm thêm form chọn công việc nữa-END-->
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

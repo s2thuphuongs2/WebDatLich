@@ -54,4 +54,28 @@ public partial class User
     public virtual ICollection<Work> IdWorks { get; set; } = new List<Work>();
 
     public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+
+    public string GetRoleName()
+    {
+        if (Roles != null && Roles.Any())
+        {
+            int roleId = Roles.First().Id + Roles.Last().Id; // Thay thế bằng cách truy xuất ID từ đối tượng Role
+            switch (roleId)
+            {
+                case 2:
+                    return "Quản trị viên";
+                case 4:
+                    return "Người tạo lịch";
+                case 6:
+                    return "Người đặt lịch";
+                case 7:
+                    return "Người đặt lịch - Cá nhân";
+                case 8:
+                    return "Người đặt lịch - Doanh nghiệp";
+                default:
+                    return "Không xác định";
+            }
+        }
+        return "Không xác định";
+    }
 }

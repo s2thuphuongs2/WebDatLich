@@ -23,6 +23,12 @@ namespace WebDatLich.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var dbSchedulerContext = _context.Users.Include(a => a.Roles);
+
+            // Đặt SelectList vào ViewData
+            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "Id", "Name");
+            List<SelectListItem> lsTrangThai = new List<SelectListItem>();
+
+
             return View(await dbSchedulerContext.ToListAsync());
         }
 
@@ -47,11 +53,10 @@ namespace WebDatLich.Areas.Admin.Controllers
         // GET: Admin/Users/Create
         public IActionResult Create()
         {
-            // Đặt SelectList vào ViewData
-            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "Id", "Name");
-            List<SelectListItem> lsTrangThai = new List<SelectListItem>();
-            
-
+            /*            // Đặt SelectList vào ViewData
+                        ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "Id", "Name");
+                        List<SelectListItem> lsTrangThai = new List<SelectListItem>();*/
+            ViewBag.IdWorks = new SelectList(_context.Works, "Id", "Name");
             return View();
         }
 
@@ -64,10 +69,15 @@ namespace WebDatLich.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Lấy công việc được chọn từ Works
+                var selectedWork = _context.Works.Find(user.IdWorks);
+                user.IdWorks.Add(selectedWork);
+                //Xử lý logic lưu trữ công việc tại đây
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.IdWorks = new SelectList(_context.Works, "Id", "Name", user.IdWorks);
             return View(user);
         }
 
