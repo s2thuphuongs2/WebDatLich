@@ -37,6 +37,9 @@ public partial class AppointmentschedulerContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
+/*Thêm DbSet cho lớp trung gian*/
+    public DbSet<UserWork> UserWorks { get; set; }
+
     public virtual DbSet<Work> Works { get; set; }
 
     public virtual DbSet<WorkingPlan> WorkingPlans { get; set; }
@@ -359,6 +362,9 @@ public partial class AppointmentschedulerContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("target");
         });
+
+ // Xác định khóa chính cho UserWork
+        modelBuilder.Entity<UserWork>().HasKey(uw => new { uw.UserId, uw.WorkId });
 
         modelBuilder.Entity<WorkingPlan>(entity =>
         {

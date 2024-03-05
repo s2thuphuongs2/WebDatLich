@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebDatLich.Models;
 
@@ -9,9 +10,11 @@ public partial class User
     public int Id { get; set; }
 
     [DisplayName("Tên người dùng")]
+    [Required(ErrorMessage = "Vui lòng điền tên người dùng")] 
     public string Username { get; set; } = null!;
 
     [DisplayName("Mật khẩu")]
+    [Required(ErrorMessage = "Vui lòng điền mật khẩu")]
     public string Password { get; set; } = null!;
 
     [DisplayName("Tên")]
@@ -52,6 +55,9 @@ public partial class User
     public virtual WorkingPlan? WorkingPlan { get; set; }
 
     public virtual ICollection<Work> IdWorks { get; set; } = new List<Work>();
+
+    /*Thêm thuộc tính biểu diễn nhiều nhiều với Work*/
+    public virtual ICollection<UserWork> UserWorks { get; set; } = new List<UserWork>();
 
     public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 

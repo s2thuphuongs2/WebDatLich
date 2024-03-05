@@ -70,12 +70,25 @@ namespace WebDatLich.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 // Lấy công việc được chọn từ Works
-                var selectedWork = _context.Works.Find(user.IdWorks);
+            
+          
+                var selectedWork = _context.Works.Find(user.IdWorks.Id);
+                // Thêm liên kết vào danh sách UserWork
+                user.UserWorks.Add(new UserWork {User = user, Work = selectedWork});
                 user.IdWorks.Add(selectedWork);
                 //Xử lý logic lưu trữ công việc tại đây
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            // Kiểm tra lỗi ModelState trong action
+            if (!ModelState.IsValid)
+            {
+                foreach (var modelError in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"Error: {modelError.ErrorMessage}");
+                }
+                // Rest of your code
             }
             ViewBag.IdWorks = new SelectList(_context.Works, "Id", "Name", user.IdWorks);
             return View(user);
