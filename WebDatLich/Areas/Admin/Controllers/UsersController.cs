@@ -71,7 +71,7 @@ namespace WebDatLich.Areas.Admin.Controllers
             {
                 // Lấy công việc được chọn từ Works
                 /*var selectedWork = _context.Works.FirstOrDefault(w => user.IdWorks.Contains(w.Id));*/
-                
+
 
                 var selectedWork = _context.Works.Find(user.SelectedWorkId);
 

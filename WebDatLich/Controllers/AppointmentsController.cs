@@ -51,11 +51,11 @@ namespace WebDatLich.Controllers
         // GET: Appointments/Create
         public IActionResult Create()
         {
-/*            ViewData["IdCanceler"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["IdCanceler"] = new SelectList(_context.Users, "Id", "Id");
             ViewData["IdCustomer"] = new SelectList(_context.Users, "Id", "Id");
             ViewData["IdInvoice"] = new SelectList(_context.Invoices, "Id", "Id");
             ViewData["IdProvider"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["IdWork"] = new SelectList(_context.Works, "Id", "Id");*/
+            ViewData["IdWork"] = new SelectList(_context.Works, "Id", "Id");
             return View();
         }
         public IActionResult selectProvider()

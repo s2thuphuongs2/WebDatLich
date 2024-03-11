@@ -1,73 +1,120 @@
 ﻿@model WebDatLich.Models.Appointment
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết lịch hẹn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<section class="cid-qxz61ptK8m" id="social-buttons3-c" data-rv-view="111">
 
-<div>
-    <h4>Appointment</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Start)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Start)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.End)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.End)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CanceledAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CanceledAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCancelerNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCancelerNavigation.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCustomerNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCustomerNavigation.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdInvoiceNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdInvoiceNavigation.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProviderNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdProviderNavigation.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdWorkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdWorkNavigation.Id)
-        </dd>
-    </dl>
+
+
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(10, 10, 10);">
+    </div>
+
+    <div class="container banner">
+        <div class="media-container-row">
+            <div class="col-md-8 align-center">
+                <h2 class="pb-3 mbr-section-title mbr-fonts-style">
+                    <strong>
+                        @ViewData["Title"]
+                    </strong>
+                </h2>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container col-md-8">
+    <div class="card">
+        <div class="container col-md-10">
+            <br/>
+            <div>
+                <h4>Appointment</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Start)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Start)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.End)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.End)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.IdCustomerNavigation)
+                        @* Người đặt lịch *@
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.IdCustomerNavigation.Username)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.IdProviderNavigation)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.IdProviderNavigation.Username)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.IdWorkNavigation.Name)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.IdWorkNavigation.Name)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.IdWorkNavigation.Description)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.IdWorkNavigation.Description)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.IdWorkNavigation.Price)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.IdWorkNavigation.Price) @(" VNĐ")
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ExchangeIdAppointmentRequestedNavigations)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ExchangeIdAppointmentRequestedNavigations)
+                    </dd>
+
+
+                    <dt class="col-sm-2">
+                        Hủy lịch
+                    </dt>
+                    <dd class="col-sm-10">
+                        <a asp-action="Cancel" asp-route-id="@Model.Id">
+                            <button class="btn btn-danger btn-tone m-r-2">Hủy</button>
+                        </a>
+                    </dd>
+
+                </dl>
+            </div>
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                <a asp-action="Index">Back to List</a>
+            </div>
+            <br/>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
