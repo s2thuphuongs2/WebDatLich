@@ -56,7 +56,7 @@ namespace WebDatLich.Areas.Admin.Controllers
             /*            // Đặt SelectList vào ViewData
                         ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "Id", "Name");
                         List<SelectListItem> lsTrangThai = new List<SelectListItem>();*/
-            ViewBag.IdWorks = new SelectList(_context.Works, "Id", "Name");
+            ViewBag.ListWorks = new SelectList(_context.Works, "Id", "Name");
             return View();
         }
 
@@ -65,17 +65,31 @@ namespace WebDatLich.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Username,Password,FirstName,LastName,Email,Mobile,Street,City")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Username,Password,FirstName,LastName,Email,Mobile,Street,City,SelectedWorkId")] User user)
         {
             if (ModelState.IsValid)
             {
                 // Lấy công việc được chọn từ Works
-                var selectedWork = _context.Works.Find(user.IdWorks);
-                user.IdWorks.Add(selectedWork);
-                //Xử lý logic lưu trữ công việc tại đây
+                /*var selectedWork = _context.Works.FirstOrDefault(w => user.IdWorks.Contains(w.Id));*/
+                
+
+                var selectedWork = _context.Works.Find(user.SelectedWorkId);
+
+
+                if (selectedWork != null)
+                {
+                    //user.IdWorks.Clear(); // Xóa danh sách hiện tại để tránh trùng lặp
+                    user.IdWorks.Add(selectedWork);
+                    //Xử lý logic lưu trữ công việc tại đây
+                }
+                else
+                {
+                    ModelState.AddModelError("IdWorks", "Không tìm thấy công việc được chọn.");
+                }
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
             ViewBag.IdWorks = new SelectList(_context.Works, "Id", "Name", user.IdWorks);
             return View(user);

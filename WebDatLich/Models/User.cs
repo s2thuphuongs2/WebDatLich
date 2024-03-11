@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebDatLich.Models;
 
@@ -51,6 +52,8 @@ public partial class User
 
     public virtual WorkingPlan? WorkingPlan { get; set; }
 
+    [NotMapped]
+    public int SelectedWorkId { get; set; } // Trường để lưu trữ ID công việc đã chọn
     public virtual ICollection<Work> IdWorks { get; set; } = new List<Work>();
 
     public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
