@@ -56,7 +56,7 @@ namespace WebDatLich.Areas.Admin.Controllers
             /*            // Đặt SelectList vào ViewData
                         ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "Id", "Name");
                         List<SelectListItem> lsTrangThai = new List<SelectListItem>();*/
-            ViewBag.ListWorks = new SelectList(_context.Works, "Id", "Name");
+            ViewBag.ListWorks = new MSelectList(_context.Works, "Id", "Name");
             return View();
         }
 
