@@ -21,6 +21,7 @@ public partial class User
     [DisplayName("Họ và tên lót")]
     public string? LastName { get; set; }
 
+    [DisplayName("Địa chỉ Email")]
     public string? Email { get; set; }
 
     [DisplayName("Số điện thoại")]

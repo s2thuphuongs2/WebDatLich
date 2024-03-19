@@ -8,7 +8,7 @@
 <div class="card">
     <div class="card-body">
         <h4>Data Table</h4>
-        <p>DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table. Below is an example of zero configuration.</p>
+        <p>Admin chỉ được phép xem</p>
         <div class="container">
             <div class="m-t-25">
                 <table id="data-table" class="table">
@@ -23,337 +23,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Lớp học Tiếng Anh</td>
-                            <td>ĐÃ LÊN LỊCH</td>
-                            <td>2024-3-27 8:30</td>
-                            <td>nguyenvanc123</td>
-                            <td>50 phút</td>
-                            <td><button>Details</button></td>
-                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
 
-                        <tr>
-                            <td>Lớp học Tiếng Anh</td>
-                            <td>ĐÃ LÊN LỊCH</td>
-                            <td>2024-3-27 8:30</td>
-                            <td>nguyenvanc123</td>
-                            <td>50 phút</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Kỹ năng Lập trình</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-04-10 14:00</td>
-                            <td>truongminh456</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <!-- Thêm 8 dòng dữ liệu khác ở đây -->
-                        <tr>
-                            <td>Hội thảo Marketing Online</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-05-05 10:00</td>
-                            <td>lethanh789</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Cuộc họp Kế hoạch Dự án</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-05-15 15:30</td>
-                            <td>phamthu456</td>
-                            <td>1.5 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa đào tạo Photoshop</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-06-01 09:00</td>
-                            <td>tranminh789</td>
-                            <td>4 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Seminar Nghệ thuật Sống</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-06-10 18:00</td>
-                            <td>nguyenquang123</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Thực hành Lập trình Python</td>
-                            <td>ĐÃ LÊN LỊCH</td>
-                            <td>2024-06-20 11:00</td>
-                            <td>tranhung456</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Workshop Sáng tạo Ý tưởng</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-07-05 14:30</td>
-                            <td>huonglan789</td>
-                            <td>2.5 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Cuộc họp Nhóm Nghiên cứu</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-07-15 10:00</td>
-                            <td>tunglam123</td>
-                            <td>1 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Phát triển Cá nhân</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-08-01 13:45</td>
-                            <td>lananh456</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdWorkNavigation.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Start)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdProviderNavigation.Username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdWorkNavigation.Duration) @(" phút")
 
+                                </td>
+                                <td>
 
-                        <tr>
-                            <td>Khóa học Kỹ năng Lập trình</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-04-10 14:00</td>
-                            <td>truongminh456</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <!-- Thêm 8 dòng dữ liệu khác ở đây -->
-                        <tr>
-                            <td>Hội thảo Marketing Online</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-05-05 10:00</td>
-                            <td>lethanh789</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <!-- Thêm 9 dòng dữ liệu khác ở đây -->
-                        <tr>
-                            <td>Khóa học Lập trình Java</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-08-20 15:30</td>
-                            <td>vuongquang123</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Cuộc thi Sáng tạo Startup</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-09-05 09:00</td>
-                            <td>nguyenminh456</td>
-                            <td>4 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa đào tạo Kỹ thuật SEO</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-09-15 18:00</td>
-                            <td>thuytrang789</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Seminar Nghệ thuật Truyền thông</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-10-01 11:00</td>
-                            <td>longhung456</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Workshop Chủ đề Nghệ thuật</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-10-10 14:30</td>
-                            <td>thihuong789</td>
-                            <td>2.5 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Cuộc họp Nhóm Nghiên cứu AI</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-10-15 10:00</td>
-                            <td>thaolam123</td>
-                            <td>1 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Phát triển Ứng dụng Di động</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-11-01 13:45</td>
-                            <td>minhanh456</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lớp học Tiếng Anh</td>
-                            <td>ĐÃ LÊN LỊCH</td>
-                            <td>2024-3-27 8:30</td>
-                            <td>nguyenvanc123</td>
-                            <td>50 phút</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Kỹ năng Lập trình</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-04-10 14:00</td>
-                            <td>truongminh456</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <!-- Thêm 19 dòng dữ liệu khác ở đây -->
-                        <tr>
-                            <td>Hội thảo Marketing Online</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-05-05 10:00</td>
-                            <td>lethanh789</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <!-- Thêm 18 dòng dữ liệu khác ở đây -->
-                        <tr>
-                            <td>Khóa học Lập trình Java</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-08-20 15:30</td>
-                            <td>vuongquang123</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Cuộc thi Sáng tạo Startup</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-09-05 09:00</td>
-                            <td>nguyenminh456</td>
-                            <td>4 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa đào tạo Kỹ thuật SEO</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-09-15 18:00</td>
-                            <td>thuytrang789</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Seminar Nghệ thuật Truyền thông</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-10-01 11:00</td>
-                            <td>longhung456</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Workshop Chủ đề Nghệ thuật</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-10-10 14:30</td>
-                            <td>thihuong789</td>
-                            <td>2.5 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Cuộc họp Nhóm Nghiên cứu AI</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-10-15 10:00</td>
-                            <td>thaolam123</td>
-                            <td>1 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Phát triển Ứng dụng Di động</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-11-01 13:45</td>
-                            <td>minhanh456</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <!-- Thêm 10 dòng dữ liệu khác ở đây -->
-                        <tr>
-                            <td>Chương trình Học bổng Sinh viên Xuất sắc</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-11-15 09:30</td>
-                            <td>vananh123</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Lập trình Front-end</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2024-12-01 14:15</td>
-                            <td>hoangphuc456</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Seminar Khởi nghiệp Doanh nhân</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2024-12-10 10:30</td>
-                            <td>trangpham789</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Phân tích Dữ liệu</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2025-01-05 15:00</td>
-                            <td>thanhnguyen123</td>
-                            <td>2.5 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Chương trình Tình nguyện Xã hội</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2025-01-15 11:30</td>
-                            <td>vanduc456</td>
-                            <td>4 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Quản trị Dự án</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2025-02-01 13:45</td>
-                            <td>maihoa789</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Seminar Công nghệ Blockchain</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2025-02-10 09:00</td>
-                            <td>tamtrinh123</td>
-                            <td>2 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Workshop Sáng tạo Nghệ thuật</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2025-02-15 14:30</td>
-                            <td>trungnguyen456</td>
-                            <td>2.5 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Cuộc họp Nhóm Nghiên cứu Machine Learning</td>
-                            <td>ĐANG DIỄN RA</td>
-                            <td>2025-03-01 10:00</td>
-                            <td>hongha789</td>
-                            <td>1 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td>Khóa học Phát triển Ứng dụng di động React Native</td>
-                            <td>CHƯA BẮT ĐẦU</td>
-                            <td>2025-03-15 13:45</td>
-                            <td>linhnguyen123</td>
-                            <td>3 giờ</td>
-                            <td><button>Chi tiết</button></td>
-                        </tr>
-
+                                    <a asp-action="Details" asp-route-id="@item.Id">
+                                        <button class="btn btn-info btn-tone m-r-2">Chi tiết</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                     <tfoot>
                         <tr>
@@ -376,51 +73,6 @@
 
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-
-<table class="table">
-    <thead>
-        <tr>
-                            <th>Nội dung</th>
-                            <th>Trạng thái</th>
-                            <th>Bắt đầu vào lúc</th>
-                            <th>Ngư hẹn</th>
-                            <th>Khoảng thời gian</th>
-                            <th>Hoạt động</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.IdWorkNavigation.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Start)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdProviderNavigation.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdWorkNavigation.Duration) @(" phút")
-
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
 @section AdminScripts {
     <script>
         $('#data-table').DataTable();

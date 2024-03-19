@@ -5,20 +5,285 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Provider</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProviderNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdProviderNavigation.Id)
-        </dd>
-    </dl>
-</div>
+<div class="container">
+
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="tab-account">
+<form asp-action="Edit">
+            <!--Thông tin cơ bản START-->
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Thông tin cơ bản</h4>
+
+                        </>
+                  
+                    </div>
+                    <div class="card-body">
+                        <div class="media align-items-center">
+                            <div class="avatar avatar-image  m-h-10 m-r-15" style="height: 80px; width: 80px">
+                                <img src="assets/images/avatars/thumb-3.jpg" alt="">
+                            </div>
+                            <div class="m-l-20 m-r-20">
+                                <h5 class="m-b-5 font-size-18">Change Avatar</h5>
+                                <p class="opacity-07 font-size-13 m-b-0">
+                                    Kích thước đề xuất: <br>
+                                    120x120 Max fil size: 5MB
+                                </p>
+                            </div>
+                            <div>
+                                <button class="btn btn-tone btn-primary">Upload</button>
+                            </div>
+                        </div>
+                        <hr class="m-v-25">
+                @*         <form asp-action="Edit"> *@
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="IdProviderNavigation.Id" />
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="IdProviderNavigation.Username" class="font-weight-semibold" for="userName"></label>
+                                    <input asp-for="IdProviderNavigation.Username" type="text" class="form-control" id="userName" placeholder="Điền User Name" value="@Model.IdProviderNavigation.Username" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="IdProviderNavigation.Email" class="font-weight-semibold" for="email">Địa chỉ Email:</label>
+                                    <input asp-for="IdProviderNavigation.Email" type="email" class="form-control" id="email" placeholder="Điền email" value="@Model.IdProviderNavigation.Email">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="IdProviderNavigation.FirstName" class="font-weight-semibold" for="firstName">Họ và tên lót:</label>
+                                    <input asp-for="IdProviderNavigation.FirstName" type="text" class="form-control" id="firstName" placeholder="First Name" value="@Model.IdProviderNavigation.FirstName">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="IdProviderNavigation.LastName" class="font-weight-semibold" for="lastName">Tên:</label>
+                                    <input asp-for="IdProviderNavigation.LastName" type="text" class="form-control" id="lastName" placeholder="Last Name" value="@Model.IdProviderNavigation.LastName">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="IdProviderNavigation.Mobile" class="font-weight-semibold" for="phoneNumber">Số điện thoại:</label>
+                                    <input asp-for="IdProviderNavigation.Mobile" type="tel" class="form-control" id="phoneNumber" placeholder="033XXXXXXX" value="@Model.IdProviderNavigation.Mobile">
+                                </div>
+
+                            </div>
+                     @*    </form> *@
+                    </div>
+                </div>
+            <!--Thông tin cơ bản END-->
+            <!--Thông tin địa chỉ START-->
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Thông tin địa chỉ</h4>
+                    </div>
+                    <div class="card-body">
+                  @*       <form> *@
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for = "IdProviderNavigation.Street" class="font-weight-semibold" for="street">Số nhà, đường:</label>
+                                    <input asp-for = "IdProviderNavigation.Street" type="text" class="form-control" id="street" placeholder="Số 30, đường 218..." value="@Model.IdProviderNavigation.Street">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for= "IdProviderNavigation.City" class="font-weight-semibold" for="city">Thành phố</label>
+                                    <select asp-for = "IdProviderNavigation.City" id="city" class="form-control" value="">
+                                        <option>Hồ Chí Minh</option>
+                                        <option>Hà Nội</option>
+                                        <option>Đà Nẵng</option>
+                                        <option>An Giang</option>
+                                        <option>Bà Rịa - Vũng Tàu</option>
+                                        <option>Bắc Giang</option>
+                                        <option>Bắc Kạn</option>
+                                        <option>Bạc Liêu</option>
+                                        <option>Bắc Ninh</option>
+                                        <option>Bến Tre</option>
+                                        <option>Bình Định</option>
+                                        <option>Bình Dương</option>
+                                        <option>Bình Phước</option>
+                                        <option>Bình Thuận</option>
+                                        <option>Cà Mau</option>
+                                        <option>Cần Thơ</option>
+                                        <option>Cao Bằng</option>
+                                        <option>Đắk Lắk</option>
+                                        <option>Đắk Nông</option>
+                                        <option>Điện Biên</option>
+                                        <option>Đồng Nai</option>
+                                        <option>Đồng Tháp</option>
+                                        <option>Gia Lai</option>
+                                        <option>Hà Giang</option>
+                                        <option>Hà Nam</option>
+                                        <option>Hà Tĩnh</option>
+                                        <option>Hải Dương</option>
+                                        <option>Hải Phòng</option>
+                                        <option>Hậu Giang</option>
+                                        <option>Hòa Bình</option>
+                                        <option>Hưng Yên</option>
+                                        <option>Khánh Hòa</option>
+                                        <option>Kiên Giang</option>
+                                        <option>Kon Tum</option>
+                                        <option>Lai Châu</option>
+                                        <option>Lâm Đồng</option>
+                                        <option>Lạng Sơn</option>
+                                        <option>Lào Cai</option>
+                                        <option>Long An</option>
+                                        <option>Nam Định</option>
+                                        <option>Nghệ An</option>
+                                        <option>Ninh Bình</option>
+                                        <option>Ninh Thuận</option>
+                                        <option>Phú Thọ</option>
+                                        <option>Phú Yên</option>
+                                        <option>Quảng Bình</option>
+                                        <option>Quảng Nam</option>
+                                        <option>Quảng Ngãi</option>
+                                        <option>Quảng Ninh</option>
+                                        <option>Quảng Trị</option>
+                                        <option>Sóc Trăng</option>
+                                        <option>Sơn La</option>
+                                        <option>Tây Ninh</option>
+                                        <option>Thái Bình</option>
+                                        <option>Thái Nguyên</option>
+                                        <option>Thanh Hóa</option>
+                                        <option>Thừa Thiên Huế</option>
+                                        <option>Tiền Giang</option>
+                                        <option>Trà Vinh</option>
+                                        <option>Tuyên Quang</option>
+                                        <option>Vĩnh Long</option>
+                                        <option>Vĩnh Phúc</option>
+                                        <option>Yên Bái</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                      
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="IdProvider" />
+                            <div class="form-group text-center">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+
+                        @* </form> *@
+                    </div>
+
+                </div>
+            <!--Thông tin địa chi-->
+                <!--Nội dung công việc bắt đầu ở đây-->
+                <div class="tab-pane" id="tab-">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Nội dung đã lên lịch</h4>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+
+                                        <li class="list-group-item p-h-0">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar avatar-icon" style="color: #323131; background: rgba(50, 49, 49, 0.1)">
+                                                        <i class="anticon anticon-github"></i>
+                                                    </div>
+                                                    <div class="font-size-15 font-weight-semibold m-l-15">Cuộc họp Kế hoạch Dự án</div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <label class="m-b-0">https://github.com</label>
+                                                    <div class="switch m-t-5 m-l-10">
+                                                        <input type="checkbox" id="switch-gh" checked="">
+                                                        <label for="switch-gh"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item qp-h-0">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar avatar-icon" style="color: #0174af; background: rgba(1, 116, 175, 0.1)">
+                                                        <i class="anticon anticon-linkedin"></i>
+                                                    </div>
+                                                    <div class="font-size-15 font-weight-semibold m-l-15">Cuộc họp Nhóm Nghiên cứu Machine Learning</div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <label class="m-b-0">https://linkedin.com</label>
+                                                    <div class="switch m-t-5 m-l-10">
+                                                        <input type="checkbox" id="switch-ln" checked="">
+                                                        <label for="switch-ln"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Nội dung công việc kết thúc ở đây-->
+                <!--Đối tượng bắt đầu ở đây-->
+                <div class="tab-pane" id="tab-notification">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Đối tượng</h4>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item p-h-0">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar avatar-icon avatar-blue">
+                                                        <i class="anticon anticon-user"></i>
+                                                    </div>
+                                                    <div class="m-l-15">
+                                                        <h5 class="font-weight-semibold m-b-0">Dành cho cá nhân</h5>
+                                                        <p class="m-b-0 font-weight-normal">Hướng tới người dùng cá nhân.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="switch m-t-5 m-l-10">
+                                                        <input type="checkbox" id="switch-config-1" checked>
+                                                        <label for="switch-config-1"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="list-group-item p-h-0">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar avatar-icon avatar-orange">
+                                                        <i class="anticon anticon-usergroup-add"></i>
+                                                    </div>
+                                                    <div class="m-l-15">
+                                                        <h5 class="font-weight-semibold m-b-0">Dành cho doanh nghiệp</h5>
+                                                        <p class="m-b-0 font-weight-normal">Hướng tới người dùng doanh nghiệp</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="switch m-t-5 m-l-10">
+                                                        <input type="checkbox" id="switch-config-7" checked>
+                                                        <label for="switch-config-7"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Đối tượng kết thúc ở đây-->
+           </form>
+
+          
+
+        </div>
+    </div>
+
+
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.IdProvider">Edit</a> |
     <a asp-action="Index">Back to List</a>

@@ -41,7 +41,67 @@ namespace WebDatLich.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            ViewBag.ListWorks = new SelectList(_context.Works, "Id", "Name");
 
+            return View(provider);
+        }
+
+        // POST: Admin/AdminProviders/Details/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Details(int id, [Bind("IdProvider")] Provider provider)
+        { 
+            // Nếu không tìm thấy Id provider thì trả về NotFound
+            if (id != provider.IdProviderNavigation.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Lấy công việc được chọn từ Works
+                    /*var selectedWork = _context.Works.FirstOrDefault(w => user.IdWorks.Contains(w.Id));*/
+                   
+                        var selectedWork = _context.Works.Find(provider.IdProviderNavigation.SelectedWorkId);
+
+
+                        if (selectedWork != null)
+                        {
+                            //user.IdWorks.Clear(); // Xóa danh sách hiện tại để tránh trùng lặp
+                            provider.IdProviderNavigation.IdWorks.Add(selectedWork);
+                            //Xử lý logic lưu trữ công việc tại đây
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("SelectedWorkId", "Không tìm thấy công việc có ID.");
+                            return View(provider);
+                        }
+                    
+
+                  
+                    _context.Update(provider);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    // Hàm ProviderExists viết ở dưới
+                    if (!ProviderExists(provider.IdProviderNavigation.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewBag.ListWorks = new SelectList(_context.Works, "Id", "Name", provider.IdProviderNavigation.SelectedWorkId);
             return View(provider);
         }
 

@@ -5,46 +5,190 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<!-- Content Wrapper START -->
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Họ và Tên
-            </th>
-            <th>
-                Email
-            </th>
-            <th>Mã số lịch hẹn</th>
-            <th>Nội dung</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                    @Html.DisplayFor(modelItem => item.IdProviderNavigation.FirstName) @Html.DisplayFor(modelItem => item.IdProviderNavigation.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdProviderNavigation.Email)
-            </td>
-            <td>
-                 @Html.DisplayFor(modelItem => item.IdProviderNavigation.AppointmentIdProviderNavigations)
-            </td>
-            <td>
-                 @Html.DisplayFor(modelItem => item.IdProviderNavigation.IdWorks)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdProvider">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdProvider">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdProvider">Delete</a>
-            </td>
-        </tr>
+    <div class="card">
+        <div class="page-header no-gutters">
+            <div class="row align-items-md-center">
+                <div class="col-md-6">
+                    <div class="media m-v-10">
+                        <div class="avatar avatar-cyan avatar-icon avatar-square">
+                            <i class="anticon anticon-star"></i>
+                        </div>
+                        <div class="media-body m-l-15">
+                            <h6 class="mb-0">Danh sách người tạo lịch hẹn (@Model.Count())</h6>
+                            <span class="text-gray font-size-13">Chọn người bạn muốn đặt lịch hẹn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-md-right m-v-10">
+                        <div class="btn-group">
+                            <button id="list-view-btn" type="button" class="btn btn-default btn-icon">
+                                <i class="anticon anticon-ordered-list"></i>
+                            </button>
+                            <button id="card-view-btn" type="button" class="btn btn-default btn-icon active">
+                                <i class="anticon anticon-appstore"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-11 mx-auto">
+                <!-- Card View -->
+                <div class="row" id="card-view">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="m-t-20 text-center">
+                                        <div class="avatar avatar-image" style="height: 100px; width: 100px;">
+                                            <img src="assets/images/avatars/thumb-1.jpg" alt="">
+                                        </div>
+                                        <!--Tên-->
+                                        <h4 class="m-t-30">
+                                            @Html.DisplayFor(modelItem => item.IdProviderNavigation.FirstName) @Html.DisplayFor(modelItem => item.IdProviderNavigation.LastName)
+                                        </h4>
+                                        <!--Email-->
+                                        <p>
+                                            @{
+                                                var email = item.IdProviderNavigation.Email;
+                                                var displayText = string.IsNullOrEmpty(email) ? "Không có email" : email;
+                                            }
+
+                                            @Html.Raw(displayText)
+
+                                        </p>
+                                    </div>
+                                    <!--Số lượng công việc-->
+                                    <div class="text-center">
+                                        <p>
+                                            Available Work: @Html.DisplayFor(modelItem => item.IdProviderNavigation.IdWorks.Count)
+                                        </p>
+                                    </div>
+                                    <div class="text-center m-t-30">
+
+                                        <a asp-action="Details" asp-route-id="@item.IdProvider" class="btn btn-primary btn-tone">
+                                            <i class="anticon anticon-user-add"></i>
+                                            <span class="m-l-5">Chọn</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                
+                </div>
+                <div class="row d-none" id="list-view">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên</th>
+                                                <th>Email</th>
+                                                <th>Số lượng lịch hẹn</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="media align-items-center">
+                                                            <div class="avatar avatar-image">
+                                                                <img src="assets/images/avatars/thumb-1.jpg" alt="">
+                                                            </div>
+                                                            <!--Tên-->
+                                                            <div class="media-body m-l-15">
+                                                                <h6 class="mb-0">
+                                                                    @Html.DisplayFor(modelItem => item.IdProviderNavigation.FirstName) @Html.DisplayFor(modelItem => item.IdProviderNavigation.LastName)
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!--Email-->
+                                                    <td>
+
+                                                        @{
+                                                            var email = item.IdProviderNavigation.Email;
+                                                            var displayText = string.IsNullOrEmpty(email) ? "Không có email" : email;
+                                                        }
+
+                                                        @Html.Raw(displayText)
+
+                                                    </td>
+                                                    <!--Số lượng công việc-->
+                                                    <td>
+                                                
+                                                           
+                                                     
+                                                    </td>
+                                                    <!--BUTTON-->
+                                                    <td class="text-right">
+                                                      
+                                                            <a asp-action="Details" asp-route-id="@item.IdProvider" class="btn btn-primary btn-tone">
+                                                            <i class="anticon anticon-user-add"></i>
+                                                            <span class="m-l-5">Chọn</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                       
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- Content Wrapper END -->
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProviderNavigation.FirstName) @Html.DisplayFor(modelItem => item.IdProviderNavigation.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProviderNavigation.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProviderNavigation.AppointmentIdProviderNavigations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProviderNavigation.IdWorks)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.IdProvider">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.IdProvider">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.IdProvider">Delete</a>
+        </td>
+    </tr>
 }
-    </tbody>
-</table>
+
+@section AdminScripts {
+    <script>
+        $('#data-table').DataTable();
+    </script>
+    <!-- page js -->
+
+}
+
+            

@@ -1,7 +1,9 @@
 ﻿
 @{
     ViewData["Title"] = "Đăng nhập";
+    Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +55,7 @@
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <span class="font-size-13 text-muted">
                                                     Don't have an account?
-                                                    <a class="small" href=""> Signup</a>
+                                                    <a asp-area="" asp-controller="Authentication" asp-action="SignUp" class="small"> Signup</a>
                                                 </span>
                                                 <button class="btn btn-primary">Sign In</button>
                                             </div>
